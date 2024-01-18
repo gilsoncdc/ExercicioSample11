@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/livro" name="BibliotecaAPILivro" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/livro/{id}">
+        <inSequence>
+            <!--This is generated API skeleton.-->
+            <property expression="get-property('uri.var.id')" name="id" scope="default" type="STRING"/>
+            <!--Business Logic Goes Here-->
+            <payloadFactory media-type="json">
+                <format>{"Response" : "Sample Response"}</format>
+                <args/>
+            </payloadFactory>
+            <loopback/>
+        </inSequence>
+        <outSequence>
+            <respond/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="LivroEndPoint" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/LivroEndPoint.xml</file>
+    </artifact>
+    <artifact name="BibliotecaAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/BibliotecaAPI.xml</file>
+    </artifact>
+    <artifact name="BibliotecaAPI_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BibliotecaAPI_swagger.yaml</file>
+    </artifact>
+    <artifact name="BibliotecaAPI_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/BibliotecaAPI_metadata.yaml</file>
+    </artifact>
+    <artifact name="LivroCreateEndPoint" groupId="com.example.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/LivroCreateEndPoint.xml</file>
+    </artifact>
+    <artifact name="LivroCreateAPI" groupId="com.example.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/LivroCreateAPI.xml</file>
+    </artifact>
+    <artifact name="LivroCreateAPI_swagger" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/LivroCreateAPI_swagger.yaml</file>
+    </artifact>
+    <artifact name="LivroCreateAPI_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/LivroCreateAPI_metadata.yaml</file>
+    </artifact>
+    <artifact name="ExemploProxyservice" groupId="com.example.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/ExemploProxyservice.xml</file>
+    </artifact>
+    <artifact name="ExemploProxyservice_proxy_metadata" groupId="com.example.metadata" version="1.0.0" type="synapse/metadata" serverRole="EnterpriseServiceBus">
+        <file>src/main/resources/metadata/ExemploProxyservice_proxy_metadata.yaml</file>
+    </artifact>
+    <artifact name="LivroLocalEntry" groupId="com.example.local-entry" version="1.0.0" type="synapse/local-entry" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/local-entries/LivroLocalEntry.xml</file>
+    </artifact>
+</artifacts>

@@ -1,0 +1,11 @@
+---
+key: "BibliotecaAPI-1.0.0"
+name : "BibliotecaAPI"
+displayName : "BibliotecaAPI"
+description: "Sample API"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/livro"
+definitionType: "OAS3"
+securityType: "BASIC"
+mutualSSLEnabled: false
+apiId : "null"

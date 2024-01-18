@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localEntry key="LivroLocalEntry" xmlns="http://ws.apache.org/ns/synapse">
+    <definitions name="LivroInfoService" targetNamespace="http://www.example.com/livroInfo" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.com/livroInfo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <types>
+            <xsd:schema targetNamespace="http://www.example.com/livroInfo">
+                <xsd:element name="LivroyRequest">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="codeLivro" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="LivroResponse">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="titulo" type="xsd:string"/>
+                            <xsd:element name="isbn" type="xsd:string"/>
+                            <xsd:element name="anoPublicacao" type="xsd:string"/>
+                            <xsd:element name="disponibilidade" type="xsd:string"/>
+                            <xsd:element name="autor" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:schema>
+        </types>
+        <message name="LivroRequestMessage">
+            <part element="tns:LivroyRequest" name="parameters"/>
+        </message>
+        <message name="LivroResponseMessage">
+            <part element="tns:LivroResponse" name="parameters"/>
+        </message>
+        <portType name="LivroInfoPortType">
+            <operation name="GetLivroInfo">
+                <input message="tns:LivroRequestMessage"/>
+                <output message="tns:LivroResponseMessage"/>
+            </operation>
+        </portType>
+        <binding name="LivroInfoBinding" type="tns:LivroInfoPortType">
+            <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+            <operation name="GetLivroInfo">
+                <soap:operation soapAction="http://www.example.com/livroInfo/GetLivroInfo"/>
+                <input>
+                    <soap:body use="literal"/>
+                </input>
+                <output>
+                    <soap:body use="literal"/>
+                </output>
+            </operation>
+        </binding>
+        <service name="LivroInfoService">
+            <documentation>This service provides information about countries based on their ISO code.</documentation>
+            <port binding="tns:LivroInfoBinding" name="LivroInfoPort">
+                <soap:address location="http://www.example.com/livroInfoService"/>
+            </port>
+        </service>
+    </definitions>
+</localEntry>

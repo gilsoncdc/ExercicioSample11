@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: BibliotecaAPILivro
+  description: API Definition of BibliotecaAPI
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/livro
+paths:
+  /livro/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+  /restLivro/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
+  /createLivro:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+        required: false
+      responses:
+        default:
+          description: Default response

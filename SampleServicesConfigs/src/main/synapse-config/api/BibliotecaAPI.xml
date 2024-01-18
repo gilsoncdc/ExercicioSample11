@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/livro" name="BibliotecaAPILivro" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/livro/{id}">
+        <inSequence>
+            <!--This is generated API skeleton.-->
+            <!--Business Logic Goes Here-->
+            <log level="custom">
+                <property name="message" value="Bem vindos a biblioteca"/>
+            </log>
+            <call>
+                <endpoint key="LivroEndPoint"/>
+            </call>
+            <log level="full"/>
+            <property expression="json-eval(titulo)" name="titulo" scope="default" type="STRING"/>
+            <property expression="json-eval(isbn)" name="isbn" scope="default" type="STRING"/>
+            <property expression="json-eval(disponibilidade)" name="disponibilidade" scope="default" type="STRING"/>
+            <property expression="json-eval(anoPublicacao)" name="anoPublicacao" scope="default" type="STRING"/>
+            <property expression="json-eval(autor.nome)" name="autor" scope="default" type="STRING"/>
+            <payloadFactory media-type="xml">
+                <format>
+                    <soapenv:envelope xmlns:coun="http://www.example.com/livroInfo" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soapenv:header/>
+                        <soapenv:body>
+                            <coun:livrorequest>
+                                <livrotitulo xmlns="">$1</livrotitulo>
+                                <livroisbn xmlns="">$2</livroisbn>
+                                <livrodisponibilidade xmlns="">$3</livrodisponibilidade>
+                                <livroanoPublicacao xmlns="">$4</livroanoPublicacao>
+                                <livroautor xmlns="">$5</livroautor>
+                            </coun:livrorequest>
+                        </soapenv:body>
+                    </soapenv:envelope>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:titulo"/>
+                    <arg evaluator="xml" expression="$ctx:isbn"/>
+                    <arg evaluator="xml" expression="$ctx:disponibilidade"/>
+                    <arg evaluator="xml" expression="$ctx:anoPublicacao"/>
+                    <arg evaluator="xml" expression="$ctx:autor"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/restLivro/{id}">
+        <inSequence>
+            <log level="full"/>
+            <send>
+                <endpoint key="LivroEndPoint"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/createLivro">
+        <inSequence>
+            <log level="full"/>
+            <send>
+                <endpoint key="LivroCreateEndPoint"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
